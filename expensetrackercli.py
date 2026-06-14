@@ -32,9 +32,11 @@ def createAndAddToCsv (file,expense,amount):
                 total_expenses[name]=0
             total_expenses[name]+=amt
 
+
     print("total breakdown:")
     for name,subtotal in total_expenses.items():
         print(f"{name}:{subtotal}")
+    print(f"grand total:{total}")
     print("-----------")
 
 
