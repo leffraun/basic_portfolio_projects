@@ -7,8 +7,16 @@ args=parser.parse_args()
 def getWeather(city):
     api_key="my_api_key"
     url=f"http://api.weatherapi.com/v1/current.json?key={api_key}&q={city}"
-    response=requests.get(url)
+    try:
+        response=requests.get(url)
+        response.raise_for_status()
+    except requests.RequestException as e:
+        print("request failed")
+        return
     data=response.json()
+    if "error" in data:
+        print(data['error']['message'])
+        return
     #print(json.dumps(data,indent=4))
     print("=========")
     print("\nWEATHER REPORT\n")
@@ -18,12 +26,13 @@ def getWeather(city):
     print(f"feels like: {data['current']['feelslike_c']}°C/{data['current']['feelslike_f']}°F\n")
     print("=========")
 
+
 getWeather(args.city)
 
 """
-input:python main.py --city mumbai
-output:
+input: python main.py --city mumbai
 
+output:
 =========
 
 WEATHER REPORT
