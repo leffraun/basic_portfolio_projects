@@ -1,97 +1,83 @@
-"""
-Create a CSV file from your Python program called sales.csv.
-
-The file should contain:
-
-Month,Sales
-Jan,1200
-Feb,1500
-Mar,1800
-Apr,1600
-May,2200
-Jun,2500
-Your Tasks
-Create the CSV file automatically using Python.
-Read the CSV file back into your program.
-Calculate:
-Average monthly sales
-Highest sales
-Lowest sales
-Determine:
-Which month had the highest sales
-Which month had the lowest sales
-Print a report:
-===== SALES REPORT =====
-
-Average Sales: xxxx
-Highest Sales: xxxx (Month)
-Lowest Sales: xxxx (Month)
-
-========================
-Create a graph showing sales by month.
-
-Use a line graph because:
-
-Months have an order.
-You want to see the trend over time.
-"""
-
 import pandas as pd
-import matplotlib.pyplot as pyt
-import csv
+import matplotlib.pyplot as plt
+import argparse
 import os
-file="sales.csv"
-def createAndWriteFile(file):
-    if not os.path.exists(file):
-        with open(file,"w",newline="") as f:
-            writer=csv.writer(f)
-            writer.writerow(['Month','Sales'])
-
-    with open(file,'a',newline='') as f:
-        writer=csv.writer(f)
-        n=int(input("how many records would you like to input into the file:"))
-        for i in range(n):
-            month=input(f"month {i+1}")
-            sales=input(f"sales {i+1}")
-            writer.writerow([month,sales])
-def makeGraph(file):
-    graph=pd.read_csv(file)
-    max_row=graph.loc[graph['Sales'].idxmax()]
-    min_row=graph.loc[graph['Sales'].idxmin()]
-    print("===== SALES REPORT =====")
-    print("average:",graph['Sales'].mean())
-    print("Highest sales:",graph['Sales'].max(),max_row['Month'])
-    print("Lowest sales:",graph['Sales'].min(),min_row['Month'])
-    print("========================")
-    pyt.plot(graph['Month'],graph['Sales'])
-    pyt.title("Sales by month")
-    pyt.xlabel("month")
-    pyt.ylabel("sales")
-    pyt.show()
-
-createAndWriteFile(file)
-makeGraph(file)
+from pathlib import Path
 """
-input:
-Month,Sales
-Jan,1200
-Feb,1500
-Mar,1800
-Apr,1600
-May,2200
-Jun,2500
+Student Performance Analyzer (CLI) – Built a Python
+command-line application using pandas and matplotlib
+to analyze CSV datasets, generate summary statistics,
+identify top and bottom performers, and visualize results 
+through bar charts.
+"""
+parser=argparse.ArgumentParser(description="csv analyser")
+parser.add_argument("--file",type=str)
+args=parser.parse_args()
+
+def createAndEditCsv():
+
+    args.file=Path(args.file)
+    if not os.path.exists(args.file):
+        print("file not found")
+        return
+    if args.file.suffix.lower()!=".csv":
+        print("csv files only")
+        return
+
+    dd=pd.read_csv(args.file)
+    dd.index=range(1,len(dd)+1)
+    #print(dd)
+    print("===== STUDENT REPORT =====")
+    print("Total students:",dd['Marks'].count(),"\n")
+    print(f"Average Marks:{dd['Marks'].mean():.2f}")
+    print("Highest marks:",dd['Marks'].max())
+    print("Lowest marks:",dd['Marks'].min())
+    max_row=dd.loc[dd['Marks'].idxmax()]
+    print("Top student:",max_row['Name'],"(",dd['Marks'].max(),")")
+    min_row=dd.loc[dd['Marks'].idxmin()]
+    print("Lowest student:",min_row['Name'],"(",dd['Marks'].min(),")")
+    print("\nAdditional Statistics:\n")
+    print("total marks of all students: ",dd['Marks'].sum())
+    scored_above_average=dd.loc[dd['Marks']>dd['Marks'].mean()]
+    print("Students score above average:",scored_above_average['Name'].count())
+    print("==========================")
+    plt.bar(dd['Name'],dd['Marks'])
+    plt.title("Marks scored by students")
+    plt.xlabel("Name")
+    plt.ylabel("Marks")
+    plt.show()
+
+createAndEditCsv()
 
 
+"""
+inputted in cli:  python main.py --file students.csv
+
+input in students.csv:
+
+     Name  Marks
+1     Ali     80
+2    Sara     95
+3    John     70
+4   Aisha     85
+5   David     60
+6  Fatima     92
 
 output:
-how many records would you like to input into the file:0
-===== SALES REPORT =====
-average: 1800.0
-Highest sales: 2500 Jun
-Lowest sales: 1200 Jan
-========================
+===== STUDENT REPORT =====
+Total students: 6
 
-Process finished with exit code 0
+Average Marks:80.33
+Highest marks: 95
+Lowest marks: 60
+Top student: Sara ( 95 )
+Lowest student: David ( 60 )
+
+Additional Statistics:
+
+total marks of all students:  482
+Students score above average: 3
+==========================
 
 
 """
