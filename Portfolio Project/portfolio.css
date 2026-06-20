@@ -1,0 +1,182 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color: var(--background-color);
+}
+:root{
+    --background-color:#f0eff4;
+    --font-color1:#291528;
+    --font-color2:#9E829C;
+    --background-color2:#3A3E3B;
+}
+#my-works{
+
+    text-align: center;
+}
+#gallery{
+    width:100%;
+    height:70vh;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    grid-template-rows:1fr 1fr 1fr;
+    grid-template-areas:
+    "box-1 box-2 box-3"
+    "box-1 box-4 box-5";
+    gap:2px;
+    margin-left:13%;
+}
+#gallery{
+    background-size:cover;
+
+}
+.project-1{
+    background-image:url("photos/fileorganiser.png");
+    background-size: cover;
+    font-size:14px;
+    position:relative;
+}
+.caption{
+    top:50%;
+    position: absolute;
+    opacity:0;
+    color:blue;
+    transition: opacity 0.3s ease;
+}
+.project-1:hover .caption{
+    opacity:1;
+    z-index:3;
+    background-color: white;
+    color:blue;
+}
+.project-2{
+    background-image:url("photos/passwordgenerator.png");
+    background-size: cover;
+}
+.project-3{
+    background-image:url("photos/expensetracker.png");
+    background-size: cover;
+}
+.project-4{
+    background-image:url("photos/weatherapi.png");
+    background-size: cover;
+}
+.project-5{
+    background-image:url("photos/dataAnalyser.png");
+    background-size: cover;
+}
+#my-works h4{
+    color: var(--font-color1);
+    background-size: cover;
+}
+
+@media (min-width:1920px){
+    #my-works h4{
+        font-size: 32px;
+    }
+    #my-works h2{
+        font-size: 44px;
+    }
+    #my-works h4, #my-works h2{
+       margin-left:1%;
+    }
+    #gallery {
+        grid-template-columns: repeat(4, 350px);
+        grid-template-rows: repeat(2, 350px);
+        margin-left: 19%;
+    }
+}
+@media (min-width:1000px) and (max-width: 1200px){
+    #my-works h4{
+        font-size: 28px;
+    }
+    #my-works h2{
+        font-size: 35px;
+    }
+    #gallery {
+        grid-template-columns: repeat(4, 250px);
+        grid-template-rows:repeat(2, 250px);
+        margin-left:9%;
+    }
+}
+@media (min-width:1250px) and (max-width: 1300px){
+    #my-works h4{
+        font-size: 28px;
+    }
+    #my-works h2{
+        font-size: 35px;
+    }
+    #gallery {
+        grid-template-columns: repeat(4, 250px);
+        grid-template-rows:repeat(2, 250px);
+        margin-left:19%;
+    }
+}
+@media (min-width:1000px) and (max-width:1100px){
+    #gallery {
+        grid-template-columns: repeat(4, 200px);
+        grid-template-rows:repeat(2, 200px);
+        margin-left:19%;
+    }
+}
+@media(min-width: 800px) and  (max-width: 1000px){
+    #my-works h4{
+        font-size: 1.5rem;
+    }
+    #my-works h2{
+        font-size: 2.5rem;
+    }
+    #gallery {
+        grid-template-columns: repeat(4, 200px);
+        grid-template-rows:repeat(2, 200px);
+    }
+}
+@media (min-width: 600px) and (max-width:800px) {
+    #gallery {
+        grid-template-columns: repeat(4, 200px);
+        grid-template-rows:repeat(2, 200px);
+        margin-left:6%;
+    }
+}
+@media(min-width:500px) and (max-width: 600px){
+    #my-works h4{
+        font-size:0.9rem;
+    }
+    #my-works h2{
+        font-size:1.5rem;
+    }
+    #gallery{
+        grid-template-columns: repeat(4,100px);
+        grid-template-rows:repeat(2,100px);
+        margin-left:21%;
+    }
+}
+@media (min-width:400px) and (max-width:500px){
+    #my-works h4, #my-works h2{
+        margin-left:-9%;
+    }
+    #my-works h4{
+        font-size:0.9rem;
+    }
+    #my-works h2{
+        font-size:1.5rem;
+    }
+    #gallery{
+        grid-template-columns: repeat(4,100px);
+        grid-template-rows:repeat(2,100px);
+        margin-left:7%;
+    }
+}
+@media (min-width:300px) and (max-width:400px){
+    #my-works h4{
+        font-size:0.9rem;
+    }
+    #my-works h2{
+        font-size:1.5rem;
+    }
+    #gallery {
+        grid-template-columns: repeat(4, 77px);
+        grid-template-rows: repeat(2, 77px);
+        margin-left:15%;
+    }
+}
