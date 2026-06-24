@@ -1,15 +1,233 @@
+/*main part*/
 *{
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 body{
-    background-color: var(--background-color);
+    background-color: var(--body-color);
 }
 :root{
+    --intro-text-color:#FBFBF2;
+    --intro-background-color:#A26769;
+    --div-shadow:#E2D0BE;
     --background-color:#f0eff4;
+    --div-color:#503047;
+    --body-color:#D3C1C3;
     --font-color1:#291528;
     --font-color2:#9E829C;
     --background-color2:#3A3E3B;
 }
+
+/*fonts*/
+.londrina-outline-regular {
+    font-family: "Londrina Outline", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.style-script-regular {
+    font-family: "Style Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*skills only */
+#skills{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+    "college     name        name   projects"
+    "contacts contacts profession1 projects"
+    "profession2 about about projects ";
+    gap: 1rem;
+    width:90%;
+    height:80vh;
+
+    margin: 5vh auto;
+}
+/*intro*/
+#intro{
+    background-color: var(--intro-background-color);
+    width:80%;
+    height: 80vh;
+    margin: 5vh auto;
+    border-radius: 10px;
+    display:flex;
+    flex-direction: column;
+    position:relative;
+}
+#intro #intro-img{
+    position: absolute;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    width: 24%;
+    height: 67%;
+    top: 17%;
+    right: 10%;
+}
+#intro #intro-text #intro-text-header {
+    position:absolute;
+    top:5%;
+    left:2%;
+    overflow:hidden;
+}
+#intro #intro-text #intro-text-header span{
+    padding:2px;
+    font-family: "Roboto Thin", sans-serif;
+    color:var(--intro-text-color);
+}
+/*college name*/
+#skills #name {
+    position: relative;
+}
+#skills #name span{
+    position: absolute;
+    top: -28%;
+    font-size: 13rem;
+    margin: auto;
+    font-family: Impact, sans-serif;
+    opacity:0.6;
+}
+#skills #name p{
+    position: absolute;
+    top: 18%;
+    left: 28%;
+    color: var(--font-color1);
+    z-index: 2;
+    font-size: 7rem;
+    transform: rotate(10deg);
+    font-family: "Style Script", cursive;
+    overflow:hidden;
+}
+#skills div {
+    border-radius: 10px;
+
+    gap: 1rem;
+    background-color:var(--div-color);
+    color:#F9F5FF;
+    overflow:hidden;
+    box-shadow: 0px 0px 1px 3px rgba(45, 49, 66, 0.5);
+}
+/*skills college*/
+#skills #college{
+    position:relative;
+}
+#skills #college p:first-child{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    font-size: 2rem;
+}
+#skills #college p:not(:first-child){
+    position: absolute;
+    bottom: 20%;
+    left: 10%;
+    width: 57%;
+}
+#skills #college p:last-child{
+bottom:5%;
+}
+/*skills projects*/
+#skills #projects{
+    position: relative;
+}
+#skills #projects p:nth-child(even){
+    transform: rotate(90deg);
+    font-size: 6rem;
+    position: absolute;
+    top: 3%;
+    left: -6%;
+    font-family: "Londrina Outline", sans-serif;
+}
+
+#skills #projects p:nth-child(odd){
+    transform: rotate(90deg);
+    font-size: 8rem;
+    position: absolute;
+    top: 24%;
+    left: -70%;
+    font-family: "Georgia", sans-serif;
+}
+#skills #projects p:nth-child(3){
+    position: absolute;
+    top: 15%;
+    left: 9%;
+    font-family:"Impact", sans-serif;
+}
+#skills #projects p:nth-child(4){
+    position: absolute;
+    top: 68%;
+    left: -34%;
+    font-family:"Lucida Sans Typewriter", sans-serif;
+}
+/*skills contacts*/
+#skills #contacts{
+    position: relative;
+}
+#skills #contacts .location{
+    font-size:100px;
+    overflow:hidden;
+    position: absolute;
+    top:20%;
+    left:40%;
+    color: var(--font-color1);
+    z-index:2;
+}
+#skills #contacts span:first-child{
+    position: absolute;
+    top:20%;
+    left:15%;
+    font-size:3rem;
+}
+#skills #contacts span:nth-of-type(2){
+    position: absolute;
+    top:10%;
+    right:2%;
+    font-size:4rem;
+}
+/*skills professions*/
+#skills #profession1, #skills #profession2 {
+    font-size:1.3rem;
+
+}
+#skills #profession1 p, #skills #profession2 p {
+    margin-bottom:-15%;
+}
+#skills #profession1,#skills #profession2, #skills #projects {
+    transition: box-shadow 0.3s ease-in-out;
+    box-shadow: inset 0px 0px 10px #9E829C,
+inset 0px 0px 20px #9E829C,
+    0px 0px 30px #9E829C;
+}
+#skills #profession1:hover, #skills #profession2:hover, #skills #projects:hover {
+    box-shadow: inset 0px 0px 0px #9E829C,
+    inset 0px 0px 10px #9E829C,
+    0px 0px 15px #9E829C,
+    0px 0px 25px #9E829C;
+    background: radial-gradient(
+            circle,
+            #9E829C 0%,
+            #291528 70%
+    );
+}
+/*skills about*/
+#skills #about{
+    text-align: center;
+    position:relative;
+}
+#skills #about p:first-of-type{
+    font-size:2rem;
+    position: absolute;
+    top:-15%;
+    left:45%;
+}
+#skills  #about p{
+    font-size:0.8rem;
+    position: absolute;
+    top:35%;
+    font-family: Monospaced, monospace;
+}
+/*all part which takes to my github account*/
 #all a{
     text-decoration:none;
     color:var(--background-color2);
@@ -24,16 +242,19 @@ body{
     text-decoration-thickness:3px;
     color:var(--background-color2);
 }
+/*contents */
 .contents{
     padding-bottom:2%;
 }
 .contents span{
     margin-right:0.5%;
 }
+/*my work*/
 #my-works{
-
+    overflow:hidden;
     text-align: center;
 }
+/*gallery*/
 #gallery{
     width:100%;
     height:70vh;
@@ -45,19 +266,15 @@ body{
     "box-1 box-4 box-5";
     gap:2px;
     margin-left:13%;
+    margin-top:4%;
 
 }
 #gallery{
     background-size:cover;
 
 }
-.project-1{
-    background-image:url("photos/fileorganiser.png");
-    background-size: cover;
-    font-size:14px;
-    position:relative;
-    border-radius:1%;
-}
+
+/*captions for my projects when hovered*/
 .caption{
     top: 37%;
     left: 9%;
@@ -75,6 +292,31 @@ body{
     background-color:var(--font-color1);
     opacity:0;
     transition: opacity 0.3s ease;
+}
+/*projects*/
+#projects a{
+    color:var(--background-color);
+}
+#projects{
+    transition: all 0.3s ease-in-out;
+
+
+}
+#projects:hover{
+    background:radial-gradient(
+            circle, #9E829C 0%,
+            #291528 70%
+
+    );
+    overflow:hidden;
+}
+
+.project-1{
+    background-image:url("photos/fileorganiser.png");
+    background-size: cover;
+    font-size:14px;
+    position:relative;
+    border-radius:1%;
 }
 .project-1:hover .box,.project-2:hover .box,.project-3:hover .box,.project-4:hover .box,.project-5:hover .box{
     width:100%;
@@ -127,6 +369,7 @@ body{
 }
 
 @media (min-width:1920px){
+    /*my works*/
     #my-works h4{
         font-size: 32px;
     }
@@ -136,63 +379,517 @@ body{
     #my-works h4, #my-works h2{
        margin-left:1%;
     }
+    /*gallery*/
     #gallery {
         grid-template-columns: repeat(3, 350px);
         grid-template-rows: repeat(2, 350px);
         margin-left: 19%;
     }
+    /*intro*/
+    #intro #intro-text #intro-text-header span{
+        padding:12px;
+        font-size:2rem;
+    }
+    /*skills college*/
+    #skills #college{
+        position:relative;
+    }
+    #skills #college p:first-child{
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        font-size: 3rem;
+    }
+    #skills #college p:not(:first-child){
+        position: absolute;
+        bottom: 20%;
+        left: 8%;
+        width: 57%;
+        font-size: 1.2rem;
+    }
+    #skills #college p:last-child{
+        bottom:5%;
+    }
+    /*skills about*/
+    #skills #about p:first-of-type{
+        left: 1%;
+        top: 4%;
+    }
+    #skills #about p{
+        width:92%;
+        margin: 4%;
+    }
+    /*skills profession*/
+    #skills #profession1,#skills #profession2 {
+        position:relative;
+    }
+    #skills #profession1 p{
+        font-size: 3.2rem;
+        width: 42%;
+        position: relative;
+        top: 3%;
+        left: 29%;
+    }
+    #skills #profession2 p{
+        font-size: 3.2rem;
+        position: relative;
+        top: 6%;
+        width: 56%;
+        left: 22%;
+    }
+    /*skills name*/
+    #skills #name span{
+        position: absolute;
+        top: -26%;
+        font-size: 18.7rem;
+        margin: auto;
+        font-family: Impact, sans-serif;
+        opacity: 0.6;
+    }
+    #skills #name p{
+        position: absolute;
+        top: 10%;
+        left: 28%;
+        color: var(--font-color1);
+        z-index: 2;
+        font-size: 12rem;
+        transform: rotate(10deg);
+    }
+    /*skills contacts*/
+    #skills #contacts .location{
+        font-size: 220px;
+        overflow: hidden;
+        position: absolute;
+        top: 9%;
+        left: 42%;
+    }
+    #skills #contacts span:first-child{
+        position: absolute;
+        top: 30%;
+        left: 11%;
+        font-size: 7rem;
+    }
+    #skills #contacts span:nth-of-type(2){
+        position: absolute;
+        top: 30%;
+        right: 10%;
+        font-size: 8rem;
+    }
+    /*skills projects*/
+    #skills #projects p:nth-child(even){
+        transform: rotate(90deg);
+        font-size: 8rem;
+        position: absolute;
+        top: 2%;
+        left: -6%;
+        font-family: "Londrina Outline", sans-serif;
+    }
+
+    #skills #projects p:nth-child(odd){
+        transform: rotate(90deg);
+        font-size: 10rem;
+        position: absolute;
+        top: 24%;
+        left: -57%;
+        font-family: "Georgia", sans-serif;
+    }
+    #skills #projects p:nth-child(3){
+        position: absolute;
+        top: 15%;
+        left: 9%;
+        font-family:"Impact", sans-serif;
+    }
+    #skills #projects p:nth-child(4){
+        position: absolute;
+        top: 77%;
+        left: -32%;
+        font-family:"Lucida Sans Typewriter", sans-serif;
+    }
 }
-@media (min-width:1000px) and (max-width: 1200px){
+@media (min-width:1250px) and (max-width: 1300px){
+    /*my works*/
     #my-works h4{
         font-size: 28px;
     }
     #my-works h2{
         font-size: 35px;
     }
+    /*gallery*/
+    #gallery {
+        grid-template-columns: repeat(4, 250px);
+        grid-template-rows:repeat(2, 250px);
+        margin-left:19%;
+    }
+    /*intro*/
+    #intro #intro-text #intro-text-header span{
+        padding:12px;
+        font-size:1rem;
+    }
+    /*skills about*/
+    #skills #about p{
+        width:92%;
+    }
+    #skills #about p:first-of-type{
+        left: -37%;
+        top: 2%;
+    }
+    /*skills college*/
+    #skills #college p:first-child{
+        font-size:20px;
+    }
+    /*skills contacts*/
+    #skills #contacts .location{
+        font-size: 170px;
+        overflow: hidden;
+        position: absolute;
+        top: 9%;
+        left: 38%;
+        z-index:1;
+    }
+    #skills #contacts span:first-child{
+        position: absolute;
+        top: 25%;
+        left: 5%;
+        font-size: 5rem;
+        z-index: 2;
+    }
+    #skills #contacts span:nth-of-type(2){
+        position: absolute;
+        top: 20%;
+        right: 8%;
+        font-size: 6rem;
+        z-index: 2;
+    }
+    /*skills profession*/
+    #skills #profession1,#skills #profession2 {
+        position:relative;
+    }
+    #skills #profession1 p{
+        font-size: 2rem;
+        width: 71%;
+        position: relative;
+        top: 33%;
+        left: 20%;
+    }
+    #skills #profession2 p{
+        font-size: 2.3rem;
+        width: 65%;
+        position: relative;
+        top: 13%;
+        left: 18%;
+    }
+
+}
+@media (min-width:1100px) and (max-width: 1250px){
+    /*my works*/
+    #my-works h4{
+        font-size: 28px;
+    }
+    #my-works h2{
+        font-size: 35px;
+    }
+    /*gallery*/
     #gallery {
         grid-template-columns: repeat(4, 250px);
         grid-template-rows:repeat(2, 250px);
         margin-left:9%;
     }
+    /*skills about*/
+    #skills #about p:first-of-type{
+        left: 1%;
+        top: 4%;
+    }
+    #skills #about p{
+        width:92%;
+        margin: 4%;
+    }
+    /*skills contacts*/
+    #skills #contacts .location{
+        font-size: 145px;
+        overflow: hidden;
+        position: absolute;
+        top: 14%;
+        left: 35%;
+    }
+    #skills #contacts span:first-child{
+        position: absolute;
+        top: 36%;
+        left: 5%;
+        font-size: 5rem;
+    }
+    #skills #contacts span:nth-of-type(2){
+        position: absolute;
+        top: 36%;
+        right: 8%;
+        font-size: 6rem;
+    }
+    /*skills profession*/
+    #skills #profession1,#skills #profession2 {
+        position:relative;
+    }
+    #skills #profession1 p{
+        font-size: 3rem;
+        width: 56%;
+        position: relative;
+        top: -5%;
+        left: 24%;
+    }
+    #skills #profession2 p{
+        font-size: 3.1rem;
+        width: fit-content;
+        position: relative;
+        top: -22%;
+        left: 7%;
+        transform: rotate(24deg);
+    }
+    /*skills projects*/
+    #skills #projects p:nth-child(even){
+        transform: rotate(90deg);
+        font-size: 5rem;
+        position: absolute;
+        top: 10%;
+        left: 7%;
+        font-family: "Londrina Outline", sans-serif;
+    }
+
+    #skills #projects p:nth-child(odd){
+        transform: rotate(90deg);
+        font-size: 7rem;
+        position: absolute;
+        top: 15%;
+        left: -59%;
+        font-family: "Georgia", sans-serif;
+    }
+    #skills #projects p:nth-child(3){
+        position: absolute;
+        top: 12%;
+        left: 24%;
+        font-family:"Impact", sans-serif;
+    }
+    #skills #projects p:nth-child(4){
+        position: absolute;
+        top: 56%;
+        left: -16%;
+        font-family:"Lucida Sans Typewriter", sans-serif;
+    }
 }
-@media (min-width:1250px) and (max-width: 1300px){
-    #my-works h4{
-        font-size: 28px;
-    }
-    #my-works h2{
-        font-size: 35px;
-    }
-    #gallery {
-        grid-template-columns: repeat(4, 250px);
-        grid-template-rows:repeat(2, 250px);
-        margin-left:19%;
-    }
-}
+
 @media (min-width:1000px) and (max-width:1100px){
+    /*gallery*/
     #gallery {
         grid-template-columns: repeat(4, 200px);
         grid-template-rows:repeat(2, 200px);
         margin-left:19%;
     }
+    /*intro*/
+    #intro{
+        background-color: var(--intro-background-color);
+        width:80%;
+        height: 50vh;
+        margin: 5vh auto;
+        border-radius: 10px;
+    }
+    #intro #intro-text #intro-text-header span{
+        padding:12px;
+    }
+    /*skills*/
+    #skills{
+        grid-template-columns: 250px 116px 250px 250px;
+        grid-template-rows: 250px 250px 250px;
+        gap:10px;
+    }
+    /*skills name*/
+    #skills #name span{
+        position: absolute;
+        top: 12%;
+        font-size: 9rem;
+        margin: auto;
+        font-family: Impact, sans-serif;
+        opacity: 0.6;
+    }
+    #skills #name p{
+        position: absolute;
+        top: 29%;
+        left: 28%;
+        color: var(--font-color1);
+        z-index: 2;
+        font-size: 6rem;
+        transform: rotate(10deg);
+    }
+    /*skills about*/
+    #skills #about p{
+        width:92%;
+    }
+    #skills #about p:first-of-type{
+        left: -37%;
+        top: 1%;
+    }
+    /*skills contacts*/
+    #skills #contacts .location{
+        font-size: 145px;
+        overflow: hidden;
+        position: absolute;
+        top: 14%;
+        left: 35%;
+    }
+    #skills #contacts span:first-child{
+        position: absolute;
+        top: 37%;
+        left: 6%;
+        font-size: 3rem;
+    }
+    #skills #contacts span:nth-of-type(2){
+        position: absolute;
+        top: 34%;
+        right: 7%;
+        font-size: 3.6rem;
+    }
+    /*skills profession*/
+    #skills #profession1,#skills #profession2 {
+        position:relative;
+    }
+    #skills #profession1 p{
+        font-size: 3.6rem;
+        width: fit-content;
+        position: relative;
+        top: -8%;
+        left: 12%;
+    }
+    #skills #profession2 p{
+        font-size: 2.5rem;
+        width: 71%;
+        position: relative;
+        top: 13%;
+        left: 15%;
+    }
 }
 @media(min-width: 800px) and  (max-width: 1000px){
+    /*my works*/
     #my-works h4{
         font-size: 1.5rem;
     }
     #my-works h2{
         font-size: 2.5rem;
     }
+    /*gallery*/
     #gallery {
         grid-template-columns: repeat(4, 200px);
         grid-template-rows:repeat(2, 200px);
     }
+    /*intro*/
+    #intro{
+        width:80%;
+        height: 40vh;
+    }
+    #intro #intro-text #intro-text-header span{
+        padding:10px;
+    }
+    /*skills*/
+    #skills{
+        gap: 7px;
+        width: 85%;
+        height: 41vh;
+        grid-template-columns: 183px 200px 166px 200px;
+        grid-template-rows: 136px 157px 200px;
+    }
+    /*skills college*/
+    #skills #college{
+        position:relative;
+    }
+    #skills #college p:first-child{
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        font-size: 1.3rem;
+    }
+    #skills #college p:not(:first-child){
+        position: absolute;
+        bottom: 20%;
+        left: 8%;
+        width: 57%;
+        font-size: 0.7rem;
+    }
+    #skills #college p:last-child{
+        bottom:5%;
+    }
+    /*skills name*/
+    #skills #name span{
+        position: absolute;
+        top: -9%;
+        font-size: 7.7rem;
+        margin: auto;
+        font-family: Impact, sans-serif;
+        opacity: 0.6;
+    }
+    #skills #name p{
+        position: absolute;
+        top: 20%;
+        left: 28%;
+        color: var(--font-color1);
+        z-index: 2;
+        font-size: 5rem;
+        transform: rotate(10deg);
+    }
+    /*skills about*/
+    #skills #about p{
+        width:92%;
+    }
+    #skills #about p:first-of-type{
+        left: -37%;
+        top: 2%;
+    }
+    /*skills contacts*/
+    #skills #contacts .location{
+        font-size: 149px;
+        overflow: hidden;
+        position: absolute;
+        top: 2%;
+        left: 36%;
+
+        z-index:2;
+    }
+    #skills #contacts span:first-child{
+        position: absolute;
+        top: 29%;
+        left: 5%;
+        font-size: 3.1rem;
+
+    }
+    #skills #contacts span:nth-of-type(2){
+        position: absolute;
+        top: 46%;
+        right: 6%;
+        font-size: 4.1rem;
+    }
+    /*skills profession*/
+    #skills #profession1,#skills #profession2 {
+        position:relative;
+        overflow: hidden;
+    }
+    #skills #profession1 p{
+        font-size: 2.3rem;
+        width: fit-content;
+        position: relative;
+        top: 6%;
+        left: 12%;
+        overflow: hidden;
+    }
+    #skills #profession2 p{
+        font-size: 1rem;
+        width: 55%;
+        position: relative;
+        top: 29%;
+        left: 27%;
+    }
 }
 @media (min-width: 600px) and (max-width:800px) {
+    /*gallery*/
     #gallery {
         grid-template-columns: repeat(4, 200px);
         grid-template-rows:repeat(2, 200px);
         margin-left:6%;
     }
+    /*caption*/
     .caption{
         top: 37%;
         left: 10%;
@@ -201,37 +898,271 @@ body{
         color: var(--font-color1);
         transition: opacity 0.3s ease;
     }
+    /*all*/
     #all{
         font-size:12px;
         text-align: center;
         margin-left:1%;
     }
+    /*intro*/
+    #intro{
+        background-color: var(--intro-background-color);
+        width:80%;
+        height: 50vh;
+        margin: 5vh auto;
+        border-radius: 10px;
+    }
+    #intro #intro-text #intro-text-header span{
+        padding:12px;
+    }
+    /*skills*/
+    #skills{
+        grid-template-columns: 211px 67px 211px 151px;
+        grid-template-rows: 250px 250px 250px;
+        gap: 2px;
+    }
+    /*skills name*/
+    #skills #name span{
+        position: absolute;
+        top: 12%;
+        font-size: 6rem;
+        margin: auto;
+        font-family: Impact, sans-serif;
+        opacity: 0.6;
+    }
+    #skills #name p{
+        position: absolute;
+        top: 26%;
+        left: 28%;
+        color: var(--font-color1);
+        z-index: 2;
+        font-size: 4rem;
+        transform: rotate(10deg);
+    }
+    /*skills about*/
+    #skills #about p{
+        width:92%;
+    }
+    #skills #about p:first-of-type{
+        left: -1%;
+        top: -2%;
+    }
+    /*skills contacts*/
+
+    #skills #contacts .location{
+        font-size: 122px;
+        overflow: hidden;
+        position: absolute;
+        top: 15%;
+        left: 55%;
+
+    }
+    #skills #contacts span:first-child{
+        position: absolute;
+        top: 44%;
+        left: 12%;
+        z-index: 2;
+        font-size: 2.9rem;
+
+    }
+    #skills #contacts span:nth-of-type(2){
+        position: absolute;
+        top: 70%;
+        right: 12%;
+        font-size: 3.6rem;
+
+    }
+    /*skills profession*/
+    #skills #profession1,#skills #profession2 {
+        position:relative;
+    }
+    #skills #profession1 p{
+        font-size: 2.8rem;
+        width: fit-content;
+        position: relative;
+        top: 3%;
+        left: 13%;
+    }
+    #skills #profession2 p{
+        font-size: 1.9rem;
+        max-width: 71%;
+        position: relative;
+        top: 17%;
+        left: 18%;
+    }
 }
 @media(min-width:500px) and (max-width: 600px){
+    /*my works*/
     #my-works h4{
         font-size:0.9rem;
     }
     #my-works h2{
         font-size:1.5rem;
     }
+    /*gallery*/
     #gallery{
         grid-template-columns: repeat(4,100px);
         grid-template-rows:repeat(2,100px);
         margin-left:21%;
     }
+    /*project*/
     .project-1:hover .caption,.project-2:hover .caption, .project-3:hover .caption,.project-4:hover .caption,.project-5:hover .caption {
         opacity: 1;
         z-index: 3;
         color: var(--font-color2);
         font-size:medium;
     }
+    /*all*/
     #all{
         font-size:10px;
         text-align: center;
         margin-left:1%;
     }
+    /*intro*/
+    #intro #intro-img {
+        width: 30%;
+        height: 44%;
+    }
+    #intro #intro-text #intro-text-header {
+        top:5%;
+        left:10%;
+    }
+    #intro #intro-text #intro-text-header span{
+        padding:5px;
+    }
+    /*skills*/
+    #skills{
+        gap: 1px;
+        width: 85%;
+        height: 41vh;
+        grid-template-columns: 119px 106px 112px 200px;
+        grid-template-rows: 90px 95px 103px;
+    }
+    /*skills name*/
+    #skills #name span{
+        position: absolute;
+        top: 0%;
+        font-size: 4.7rem;
+        margin: auto;
+        font-family: Impact, sans-serif;
+        opacity: 0.6;
+    }
+    #skills #name p{
+        position: absolute;
+        top: 29%;
+        left: 28%;
+        color: var(--font-color1);
+        z-index: 2;
+        font-size: 4rem;
+        transform: rotate(10deg);
+    }
+    /*skills college*/
+
+    #skills #college p:first-child{
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        font-size: 14px;
+    }
+    #skills #college p:not(:first-child){
+        position: absolute;
+        bottom: 20%;
+        left: 8%;
+        width: 57%;
+        font-size: 7px;
+    }
+    #skills #college p:last-child{
+        bottom:10%;
+    }
+    /*skills about*/
+    #skills #about p{
+        width: 65%;
+        right: 5%;
+        top: 16%;
+        font-size:0.5rem;
+    }
+    #skills #about p:first-of-type{
+        left: -17%;
+        top: 2%;
+    }
+    /*skills contacts*/
+
+    #skills #contacts .location{
+        font-size: 82px;
+        overflow: hidden;
+        position: absolute;
+        top: 7%;
+        left: 38%;
+
+    }
+    #skills #contacts span:first-child{
+        position: absolute;
+        top: 44%;
+        left: 6%;
+        z-index: 2;
+        font-size: 2.1rem;
+
+    }
+    #skills #contacts span:nth-of-type(2){
+        position: absolute;
+        top: 43%;
+        right: 6%;
+        font-size: 2.3rem;
+
+    }
+    /*skills profession*/
+    #skills #profession1,#skills #profession2 {
+        position:relative;
+        overflow: hidden;
+    }
+    #skills #profession1 p{
+        font-size: 1.3rem;
+        width: 71%;
+        position: relative;
+        top: 1%;
+        left: 21%;
+        overflow: hidden;
+    }
+    #skills #profession2 p{
+        font-size: 1rem;
+        width: 71%;
+        position: relative;
+        top: 9%;
+        left: 18%;
+    }
+    /*skills projects*/
+    #skills #projects p:nth-child(even){
+        transform: rotate(90deg);
+        font-size: 3rem;
+        position: absolute;
+        top: -14%;
+        left: -3%;
+        font-family: "Londrina Outline", sans-serif;
+    }
+
+    #skills #projects p:nth-child(odd){
+        transform: rotate(90deg);
+        font-size: 4rem;
+        position: absolute;
+        top: 15%;
+        left: -49%;
+        font-family: "Georgia", sans-serif;
+    }
+    #skills #projects p:nth-child(3){
+        position: absolute;
+        top: 12%;
+        left: -1%;
+        font-family:"Impact", sans-serif;
+    }
+    #skills #projects p:nth-child(4){
+        position: absolute;
+        top: 74%;
+        left: -27%;
+        font-family: "Lucida Sans Typewriter", sans-serif;
+    }
 }
 @media (min-width:400px) and (max-width:500px){
+    /*my works*/
     #my-works h4, #my-works h2{
         margin-left:-9%;
     }
@@ -241,44 +1172,353 @@ body{
     #my-works h2{
         font-size:1.5rem;
     }
+    /*gallery*/
     #gallery{
         grid-template-columns: repeat(4,100px);
         grid-template-rows:repeat(2,100px);
         margin-left:7%;
     }
+    /*project*/
     .project-1:hover .caption,.project-2:hover .caption, .project-3:hover .caption,.project-4:hover .caption,.project-5:hover .caption {
         opacity: 1;
         z-index: 3;
         color: var(--font-color2);
         font-size:medium;
     }
+    /*all*/
     #all{
         font-size:10px;
         text-align: center;
         margin-left:-5%;
     }
+    /*intro*/
+    #intro{
+        height: 30vh;
+        margin: 5vh auto;
+    }
+    #intro #intro-img{
+        width: 30%;
+        height: 65%;
+
+    }
+    #intro #intro-text #intro-text-header{
+        left:15%;
+    }
+    #intro #intro-text #intro-text-header span{
+        padding:2px;
+        font-size:10px;
+
+    }
+    /*skills*/
+    #skills {
+        grid-template-columns: 98px 50px 110px 81px;
+        grid-template-rows: repeat(3, 100px);
+        grid-template-areas:
+                "college name name projects"
+                "contacts profession1 profession1 projects"
+                "profession2 profession2 about about";
+        height: 40vh;
+        gap: 2px;
+    }
+    /*skills college*/
+    #skills #college{
+        position:relative;
+    }
+    #skills #college p:first-child{
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        font-size: 13px;
+    }
+    #skills #college p:not(:first-child){
+        position: absolute;
+        bottom: 10%;
+        left: 8%;
+        width: 57%;
+        font-size: 7px;
+    }
+    /*skills name*/
+    #skills #name span{
+        position: absolute;
+        top: 6%;
+        font-size: 3.7rem;
+        margin: auto;
+        font-family: Impact, sans-serif;
+        opacity: 0.6;
+    }
+    #skills #name p{
+        position: absolute;
+        top: 20%;
+        left: 28%;
+        color: var(--font-color1);
+        z-index: 2;
+        font-size: 3rem;
+        transform: rotate(10deg);
+    }
+    /*skills contacts*/
+    #skills #contacts .location{
+        font-size: 40px;
+        overflow: hidden;
+        position: absolute;
+        top: 15%;
+        left: 56%;
+
+    }
+    #skills #contacts span:first-child{
+        position: absolute;
+        top: 46%;
+        left: 10%;
+        z-index: 2;
+        font-size: 1.1rem;
+
+    }
+    #skills #contacts span:nth-of-type(2){
+        position: absolute;
+        top: 65%;
+        right: 9%;
+        font-size: 1.3rem;
+
+    }
+    /*skills profession*/
+    #skills #profession1, #skills #profession2 {
+        font-size:2.3rem;
+        text-align: center;
+        position:relative;
+    }
+    #skills #profession1 p{
+        position: absolute;
+        font-size: 1.6rem;
+        width: 49%;
+        top: 2%;
+        left: 19%;
+    }
+    #skills #profession2 p{
+        position: absolute;
+        top: 3%;
+        left: 5%;
+        font-size: 1.5rem;
+    }
+    /*skills about*/
+    #skills #about p {
+        font-size: 9px;
+        position: absolute;
+        top: 3%;
+        left: 23%;
+        width: 74%;
+        font-family: Monospaced, monospace;
+    }
+    #skills #about p:first-of-type{
+        left: -23%;
+        font-size: 1rem;
+        top: 15%;
+    }
+    /*skills projects*/
+    #skills #projects p:nth-child(even){
+        transform: rotate(90deg);
+        font-size: 1rem;
+        position: absolute;
+        top: 18%;
+        left: 14%;
+        font-family: "Londrina Outline", sans-serif;
+    }
+
+    #skills #projects p:nth-child(odd){
+        transform: rotate(90deg);
+        font-size: 2rem;
+        position: absolute;
+        top: 15%;
+        left: -59%;
+        font-family: "Georgia", sans-serif;
+    }
+    #skills #projects p:nth-child(3){
+        position: absolute;
+        top: 12%;
+        left: 24%;
+        font-family:"Impact", sans-serif;
+    }
+    #skills #projects p:nth-child(4){
+        position: absolute;
+        top: 77%;
+        left: -7%;
+        font-family: "Lucida Sans Typewriter", sans-serif;
+    }
 }
 @media (min-width:300px) and (max-width:400px){
+    /*my works*/
     #my-works h4{
         font-size:0.9rem;
     }
     #my-works h2{
         font-size:1.5rem;
     }
+    /*gallery*/
     #gallery {
         grid-template-columns: repeat(4, 77px);
         grid-template-rows: repeat(2, 77px);
         margin-left:15%;
     }
+    /*project*/
     .project-1:hover .caption,.project-2:hover .caption, .project-3:hover .caption,.project-4:hover .caption,.project-5:hover .caption {
         opacity: 1;
         z-index: 3;
         color: var(--font-color2);
         font-size:small;
     }
+    /*all*/
     #all{
         font-size:10px;
         text-align: center;
         margin-left:1%;
+    }
+    /*intro*/
+    #intro{
+        height: 40vh;
+        margin: 5vh auto;
+    }
+    #intro #intro-img {
+        width: 30%;
+        height: 44%;
+    }
+    #intro #intro-text #intro-text-header {
+        top:5%;
+        left:15%;
+    }
+    #intro #intro-text #intro-text-header span{
+        padding:1px;
+        font-size:9px;
+    }
+    /*skills*/
+    #skills{
+        grid-template-columns: 111px 43px 52px 81px;
+        grid-template-rows: repeat(2, 101px) 83px;
+        grid-template-areas:
+                "college name name projects"
+                "contacts profession1 profession1 projects"
+                "profession2 profession2 about about";
+        height: 43.1vh;
+        gap: 2px;
+    }
+    /*skills college*/
+
+    #skills #college p:first-child{
+        position: absolute;
+        top: 5%;
+        left: 5%;
+        font-size: 14px;
+    }
+    #skills #college p:not(:first-child){
+        position: absolute;
+        bottom: 20%;
+        left: 8%;
+        width: 57%;
+        font-size: 7px;
+    }
+    #skills #college p:last-child{
+        bottom:10%;
+    }
+    /*skills about*/
+    #skills #about p{
+        width: 72%;
+        top: 5%;
+        right: 6%;
+        font-size: 7px;
+    }
+    #skills #about p:first-of-type{
+        left: -25%;
+        top: 1%;
+        font-size: 1.1rem;
+    }
+    /*skills name*/
+    #skills #name span{
+        position: absolute;
+        top: 21%;
+        font-size: 2.3rem;
+        margin: auto;
+        font-family: Impact, sans-serif;
+        opacity: 0.6;
+    }
+    #skills #name p{
+        position: absolute;
+        top: 29%;
+        left: 28%;
+        color: var(--font-color1);
+        z-index: 2;
+        font-size: 2rem;
+        transform: rotate(10deg);
+    }
+    /*skills contacts*/
+
+#skills #contacts .location{
+    font-size: 40px;
+    overflow: hidden;
+    position: absolute;
+    top: 15%;
+    left: 56%;
+
+}
+#skills #contacts span:first-child{
+    position: absolute;
+    top: 46%;
+    left: 10%;
+    z-index: 2;
+    font-size: 1.1rem;
+
+}
+#skills #contacts span:nth-of-type(2){
+    position: absolute;
+    top: 65%;
+    right: 9%;
+    font-size: 1.3rem;
+
+}
+    /*skills profession*/
+    #skills #profession1,#skills #profession2 {
+        position:relative;
+        overflow: hidden;
+    }
+    #skills #profession1 p{
+        font-size: 1rem;
+        width: 71%;
+        position: relative;
+        top: 10%;
+        left: 26%;
+        overflow: hidden;
+    }
+    #skills #profession2 p{
+        font-size: 1rem;
+        width: 69%;
+        position: relative;
+        top: 19%;
+        left: 23%;
+    }
+    /*skills project*/
+    #skills #projects p:nth-child(even){
+        transform: rotate(90deg);
+        font-size: 1rem;
+        position: absolute;
+        top: 18%;
+        left: 14%;
+        font-family: "Londrina Outline", sans-serif;
+    }
+
+    #skills #projects p:nth-child(odd){
+        transform: rotate(90deg);
+        font-size: 2rem;
+        position: absolute;
+        top: 15%;
+        left: -59%;
+        font-family: "Georgia", sans-serif;
+    }
+    #skills #projects p:nth-child(3){
+        position: absolute;
+        top: 12%;
+        left: 24%;
+        font-family:"Impact", sans-serif;
+    }
+    #skills #projects p:nth-child(4){
+        position: absolute;
+        top: 77%;
+        left: -7%;
+        font-family: "Lucida Sans Typewriter", sans-serif;
     }
 }
