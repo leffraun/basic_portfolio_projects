@@ -5,7 +5,12 @@
     <title>My Portfolio</title>
     <link rel="stylesheet" href="portfolio.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo+Black&family=Coming+Soon&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Julius+Sans+One&family=Londrina+Outline&family=Luckiest+Guy&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playwrite+AU+SA:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Style+Script&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- Hero Section
@@ -19,8 +24,51 @@ Projects
 Education
 ↓
 Contact-->
-<section id="about-me">
-
+<section id="intro">
+    <div id="intro-text">
+        <div id="intro-text-header">
+            <span>Home</span>
+            <span>|</span>
+            <span>About</span>
+            <span>|</span>
+            <span>Projects</span>
+            <span>|</span>
+            <span>Contact</span>
+        </div>
+        <div id="intro-text-heading">
+            <h1>Introducing...</h1>
+            <h3>The lady behind it the project</h3>
+        </div>
+        <div id="intro-text-body">
+            <p>Manha is a writer, junior data analyst and web developer. Her best invention, so far, is yet to come.
+            </p>
+        </div>
+    </div>
+    <div id="intro-img"></div>
+</section>
+<section id="skills">
+    <div id="name" style="grid-area: name;">
+        <span>MANHA</span>
+        <p>manha</p>
+    </div>
+    <div id="college" style="grid-area:college">
+    <p>Pondicherry University</p>
+        <p> B.Sc. (Hons) Computer Science</p>
+            <p>Fourth Year</p>
+    </div>
+    <div id="about" style="grid-area:about">
+        <p>Hi!</p>
+            <p>
+            I am Manha, a part-time coder and a full-time dreamer. While you're not catching me
+            at work trying to understand what I'm doing, you can find me dozing off or binge-watching.
+            </p>
+    </div>
+    <div id="projects" style="grid-area:projects" ><a href="#my-works"><p>Projects</p>
+        <p>Projects</p><p>Projects</p><p>Projects</p></a></div>
+    <div id="contacts" style="grid-area:contacts"><span>Kerala</span><i class="fa-solid fa-location-dot location"></i><span>India</span></div>
+    <div id="profession1" style="grid-area:profession1">
+        <p>Data Analyst</p></div>
+    <div id="profession2" style="grid-area:profession2"><p>Web Developer</p></div>
 </section>
 <section id="my-works">
   <h4>Portfolio</h4>
@@ -29,8 +77,6 @@ Contact-->
   <span id="all"><a href="https://github.com/leffraun/basic_portfolio_projects" target="_blank">Explore My GitHub</a></span>
     </div>
   <div id="gallery">
-
-
     <div  class="project-1" style="grid-area:box-1">
         <a href="https://github.com/leffraun/basic_portfolio_projects/blob/main/fileorganiser.py" target="_blank">
         <span class="caption">File organiser</span>
