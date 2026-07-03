@@ -1,14 +1,16 @@
 /*main part*/
 *{
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 body{
     background-color: var(--body-color);
 }
 :root{
+    --text-header-underline:#DEBAC0;
+    --text-header-color:#0E0F19;
     --intro-text-color:#FBFBF2;
     --intro-background-color:#A26769;
+    --skills-color:#F9F5FF;
     --div-shadow:#E2D0BE;
     --background-color:#f0eff4;
     --div-color:#503047;
@@ -16,6 +18,11 @@ body{
     --font-color1:#291528;
     --font-color2:#9E829C;
     --background-color2:#3A3E3B;
+    --footer-background-color:#73877B;
+    --footer-head-color:#BDBBB6;
+    --footer-text:#002E2C;
+    --icons-color:#BDBBB6;
+    --icons-hover-color:#ECE4B7;
 }
 
 /*fonts*/
@@ -24,12 +31,26 @@ body{
     font-weight: 400;
     font-style: normal;
 }
+
+.cormorant-garamond {
+                font-family: "Cormorant", serif;
+                font-optical-sizing: auto;
+                font-weight: 300;
+                font-style: normal;
+            }
+
 .style-script-regular {
     font-family: "Style Script", cursive;
     font-weight: 400;
     font-style: normal;
 }
 
+.inter {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 100;
+            font-style: normal;
+        }
 /*skills only */
 #skills{
     display: grid;
@@ -58,23 +79,63 @@ body{
 }
 #intro #intro-img{
     position: absolute;
-    background-color: var(--background-color);
+    background-image:url("photos/my_image.jpeg");
+    background-size: cover;
     border-radius: 10px;
     width: 24%;
     height: 67%;
     top: 17%;
     right: 10%;
+    filter:sepia(55%)  ;
 }
 #intro #intro-text #intro-text-header {
     position:absolute;
     top:5%;
     left:2%;
     overflow:hidden;
+
 }
+
+#intro #intro-text #intro-text-heading{
+    display:grid;
+}
+#intro #intro-text #intro-text-heading > *{
+    grid-area: 1/1;
+ }
 #intro #intro-text #intro-text-header span{
     padding:2px;
     font-family: "Roboto Thin", sans-serif;
     color:var(--intro-text-color);
+}
+#intro #intro-text #intro-text-header span:nth-child(odd):hover {
+    text-decoration:underline;
+    text-decoration-color:var(--text-header-underline);
+    text-decoration-thickness: 5px;
+    color:var(--text-header-color);
+}
+#intro #intro-text-heading h1{
+    font-family:"Cormorant", serif;
+    font-weight: bold;
+    font-size:8rem;
+    z-index:2;
+    position:absolute;
+    top:30%;
+    left:10%;
+}
+#intro #intro-text #intro-text-heading h3{
+    font-size:1.3rem;
+    position:absolute;
+    top:45%;
+    left:22%;
+    font-family:"Trebuchet MS", serif;
+    font-weight:normal;
+}
+#intro #intro-text #intro-text-body p{
+    position:absolute;
+    bottom:15%;
+    left:12%;
+    width:50%;
+    font-family: "Times New Roman", sans-serif;
 }
 /*college name*/
 #skills #name {
@@ -104,7 +165,7 @@ body{
 
     gap: 1rem;
     background-color:var(--div-color);
-    color:#F9F5FF;
+    color:var(--skills-color);
     overflow:hidden;
     box-shadow: 0px 0px 1px 3px rgba(45, 49, 66, 0.5);
 }
@@ -195,19 +256,19 @@ bottom:5%;
 }
 #skills #profession1,#skills #profession2, #skills #projects {
     transition: box-shadow 0.3s ease-in-out;
-    box-shadow: inset 0px 0px 10px #9E829C,
-inset 0px 0px 20px #9E829C,
-    0px 0px 30px #9E829C;
+    box-shadow: inset 0px 0px 10px var(--font-color2);,
+inset 0px 0px 20px var(--font-color2),
+    0px 0px 30px var(--font-color2);
 }
 #skills #profession1:hover, #skills #profession2:hover, #skills #projects:hover {
-    box-shadow: inset 0px 0px 0px #9E829C,
-    inset 0px 0px 10px #9E829C,
-    0px 0px 15px #9E829C,
-    0px 0px 25px #9E829C;
+    box-shadow: inset 0px 0px 0px var(--font-color2),
+    inset 0px 0px 10px var(--font-color2),
+    0px 0px 15px var(--font-color2),
+    0px 0px 25px var(--font-color2);
     background: radial-gradient(
             circle,
-            #9E829C 0%,
-            #291528 70%
+            var(--font-color2) 0%,
+            var(--font-color1) 70%
     );
 }
 /*skills about*/
@@ -253,6 +314,9 @@ inset 0px 0px 20px #9E829C,
 #my-works{
     overflow:hidden;
     text-align: center;
+    margin:2%;
+    padding-bottom:2%;
+    border-radius: 30%;
 }
 /*gallery*/
 #gallery{
@@ -304,8 +368,8 @@ inset 0px 0px 20px #9E829C,
 }
 #projects:hover{
     background:radial-gradient(
-            circle, #9E829C 0%,
-            #291528 70%
+            circle, var(--font-color2) 0%,
+            var(--font-color1) 70%
 
     );
     overflow:hidden;
@@ -368,6 +432,116 @@ inset 0px 0px 20px #9E829C,
     background-size: cover;
 }
 
+/*footer*/
+footer{
+    width:100%;
+    background-color:var(--footer-background-color);
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    min-height:600px;
+    max-height:900px;
+    position:relative;
+    overflow:hidden;
+}
+footer #footer-head{
+    width: 100%;
+    position: absolute;
+    bottom: -67%;
+    font-size: 17rem;
+    font-family: Impact, sans-serif;
+    color: var(--footer-head-color);
+    overflow: hidden;
+    left: 50%;
+    transform: translateX(-50%);
+}
+#footer-head{
+    pointer-events:none;
+}
+footer #footer-text{
+    position: absolute;
+    top:5%;
+    display:flex;
+    flex-direction:row;
+    justify-content:flex-start;
+    align-items:flex-start;
+    width:100%;
+    font-family:Georgia, Times, serif;
+    color:var(--footer-text);
+    gap:1px;
+    z-index:2;
+}
+footer #footer-text #footer-nav{
+    width:33.3%;
+    height:20%;
+    margin-left:2%;
+}
+footer #footer-text #footer-about{
+    width:33.3%;
+    height:20%;
+}
+
+footer #footer-nav p:not(:first-of-type){
+    font-size:1.5rem;
+}
+footer #footer-nav p:first-child{
+    margin-bottom:2%;
+}
+footer #footer-text #footer-about h3{
+    font-size:1.5rem;
+    margin-left:2%;
+}
+footer #footer-text #footer-about p{
+    width:70%;
+    margin:2%;
+}
+footer #footer-text #footer-about #icons{
+    margin:auto 4%;
+    font-size:1.1rem;
+
+}
+footer #footer-text #footer-about .icon{
+    overflow: hidden;
+}
+#icons{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    justify-content:flex-start;
+    margin-top:10px;
+    padding-bottom:10px;
+}
+
+#icons a{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:25px;
+    height:20px;
+    text-decoration:none;
+    color:var(--icons-color);
+    border-radius:50%;
+    transition:all .3s ease;
+
+}
+#icons a:hover .icon{
+    color:var(--icons-hover-color);
+    border-radius:2%;
+}
+footer #footer-text #footer-contact{
+    width:33.3%;
+    height:20%;
+}
+footer #footer-text #footer-contact p, footer #footer-text #footer-contact address{
+    margin:2%;
+}
+footer #footer-text #footer-nav a:hover{
+    background-color:var(--icons-hover-color);
+    transition:0.5s background ease-in-out;
+    font-family:"Sans Serif Collection", serif;
+}
+
 @media (min-width:1920px){
     /*my works*/
     #my-works h4{
@@ -389,6 +563,22 @@ inset 0px 0px 20px #9E829C,
     #intro #intro-text #intro-text-header span{
         padding:12px;
         font-size:2rem;
+    }
+    #intro #intro-text-heading h1{
+        font-size: 11rem;
+        top: 28%;
+        left: 13%;
+    }
+    #intro #intro-text #intro-text-heading h3{
+        font-size:1.5rem;
+        top:53%;
+        left:30%;
+    }
+    #intro #intro-text #intro-text-body p{
+        bottom: 16%;
+        left: 12%;
+        width: 42%;
+        font-size: 2rem;
     }
     /*skills college*/
     #skills #college{
@@ -505,6 +695,17 @@ inset 0px 0px 20px #9E829C,
         left: -32%;
         font-family:"Lucida Sans Typewriter", sans-serif;
     }
+    /*footer*/
+    footer{
+        min-height:300px;
+        max-height:1000px;
+        margin:0;
+        position:absolute;
+    }
+    footer #footer-head{
+        bottom: -126%;
+        font-size: 454px;
+    }
 }
 @media (min-width:1250px) and (max-width: 1300px){
     /*my works*/
@@ -524,6 +725,24 @@ inset 0px 0px 20px #9E829C,
     #intro #intro-text #intro-text-header span{
         padding:12px;
         font-size:1rem;
+    }
+    #intro #intro-text #intro-text-heading h1{
+   top:20%;
+    }
+    #intro #intro-text #intro-text-heading h3{
+        font-size:1.5rem;
+        top:53%;
+        left:25%;
+    }
+    #intro #intro-text #intro-text-body p{
+        bottom: 13%;
+        left: 12%;
+        width: 42%;
+        font-size: 1.2rem;
+    }
+    /*skills*/
+    #skills{
+        margin: 5vh 12vh;
     }
     /*skills about*/
     #skills #about p{
@@ -578,6 +797,28 @@ inset 0px 0px 20px #9E829C,
         top: 13%;
         left: 18%;
     }
+    /*footer*/
+    footer{
+        min-height:300px;
+        max-height:1000px;
+        margin:0;
+        position:absolute;
+    }
+    footer #footer-text{
+        margin-left:18%;
+    }
+    footer #footer-head{
+        bottom: -126%;
+        font-size: 454px;
+
+    }
+    footer #footer-nav p:not(:first-of-type){
+        font-size:1rem;
+    }
+    footer #footer-nav p:first-child{
+        margin-bottom:2%;
+        font-size:1.2rem;
+    }
 
 }
 @media (min-width:1100px) and (max-width: 1250px){
@@ -594,6 +835,8 @@ inset 0px 0px 20px #9E829C,
         grid-template-rows:repeat(2, 250px);
         margin-left:9%;
     }
+    /*intro*/
+
     /*skills about*/
     #skills #about p:first-of-type{
         left: 1%;
@@ -672,9 +915,33 @@ inset 0px 0px 20px #9E829C,
         left: -16%;
         font-family:"Lucida Sans Typewriter", sans-serif;
     }
+    /*footer*/
+    footer{
+        min-height:300px;
+        max-height:1000px;
+        margin:0;
+        position:absolute;
+    }
+    footer #footer-head{
+        bottom: -93%;
+        font-size: 360px;
+
+    }
 }
 
 @media (min-width:1000px) and (max-width:1100px){
+    /*my works*/
+    #my-works h2{
+        font-size: 1.6rem;
+    }
+    #my-works h4 {
+        font-size: 2.3rem;
+    }
+    /* my works*/
+    #my-works{
+        height:524px;
+        overflow:visible;
+    }
     /*gallery*/
     #gallery {
         grid-template-columns: repeat(4, 200px);
@@ -685,18 +952,42 @@ inset 0px 0px 20px #9E829C,
     #intro{
         background-color: var(--intro-background-color);
         width:80%;
-        height: 50vh;
+        max-height: 500px;
+        min-height:400px;
         margin: 5vh auto;
         border-radius: 10px;
     }
     #intro #intro-text #intro-text-header span{
         padding:12px;
     }
+    #intro #intro-text-heading h1{
+        font-size: 6rem;
+
+    }
+    #intro #intro-text #intro-text-heading h3{
+        font-size:1.2rem;
+        top:57%;
+        left:20%;
+    }
+    #intro #intro-text #intro-text-heading{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        gap:1rem;
+    }
+    #intro #intro-text #intro-text-body p{
+        bottom: 16%;
+        left: 12%;
+        width: 42%;
+        font-size: 1rem;
+    }
     /*skills*/
     #skills{
         grid-template-columns: 250px 116px 250px 250px;
         grid-template-rows: 250px 250px 250px;
         gap:10px;
+        height: auto;
     }
     /*skills name*/
     #skills #name span{
@@ -762,6 +1053,26 @@ inset 0px 0px 20px #9E829C,
         top: 13%;
         left: 15%;
     }
+    /*footer*/
+    footer{
+        padding:60px 0;
+        margin:0;
+        position:relative;
+        width:124%;
+    }
+    footer #footer-head{
+        bottom:0;
+        left:50%;
+        font-size: 360px;
+
+    }
+    footer #footer-nav p:not(:first-of-type){
+        font-size:1rem;
+    }
+    footer #footer-nav p:first-child{
+        margin-bottom:2%;
+        font-size:1.2rem;
+    }
 }
 @media(min-width: 800px) and  (max-width: 1000px){
     /*my works*/
@@ -771,6 +1082,10 @@ inset 0px 0px 20px #9E829C,
     #my-works h2{
         font-size: 2.5rem;
     }
+    #my-works{
+        height:584px;
+        overflow:visible;
+    }
     /*gallery*/
     #gallery {
         grid-template-columns: repeat(4, 200px);
@@ -779,10 +1094,25 @@ inset 0px 0px 20px #9E829C,
     /*intro*/
     #intro{
         width:80%;
-        height: 40vh;
+        min-height:400px;
+        height:auto;
     }
     #intro #intro-text #intro-text-header span{
         padding:10px;
+    }
+    #intro #intro-text-heading h1{
+        font-size: 5.4rem;
+        top: 27%;
+        left: 6%;
+    }
+    #intro #intro-text #intro-text-heading h3{
+        top: 53%;
+    }
+    #intro #intro-text #intro-text-body p{
+        bottom: 16%;
+        left: 12%;
+        width: 42%;
+        font-size: 1.2rem;
     }
     /*skills*/
     #skills{
@@ -845,7 +1175,6 @@ inset 0px 0px 20px #9E829C,
         position: absolute;
         top: 2%;
         left: 36%;
-
         z-index:2;
     }
     #skills #contacts span:first-child{
@@ -881,8 +1210,50 @@ inset 0px 0px 20px #9E829C,
         top: 29%;
         left: 27%;
     }
+    /*footer*/
+    footer{
+        padding:60px 0;
+        margin:0;
+       position:relative;
+        overflow-x: hidden;
+    }
+    footer #footer-head{
+        position:absolute;
+        bottom:0;
+        left:50%;
+        font-size: 291px;
+    }
+    footer #footer-text{
+        width: 70%;
+    }
+    footer #footer-nav p:not(:first-of-type){
+        font-size:1rem;
+    }
+    footer #footer-nav p:first-child{
+        margin-bottom:2%;
+        font-size:1.2rem;
+    }
+    footer #footer-text #footer-about h3{
+        font-size:1.5rem;
+        margin-left:2%;
+    }
+    footer #footer-text #footer-about p{
+        width:70%;
+        margin:2%;
+        font-size:0.8rem;
+    }
 }
 @media (min-width: 600px) and (max-width:800px) {
+    /*my works*/
+    #my-works h2{
+        font-size: 1.6rem;
+    }
+    #my-works h4 {
+        font-size: 2.3rem;
+    }
+    #my-works{
+        height:567px;
+    }
     /*gallery*/
     #gallery {
         grid-template-columns: repeat(4, 200px);
@@ -912,8 +1283,24 @@ inset 0px 0px 20px #9E829C,
         margin: 5vh auto;
         border-radius: 10px;
     }
+
     #intro #intro-text #intro-text-header span{
         padding:12px;
+    }
+    #intro #intro-text-heading h1{
+        font-size: 4.7rem;
+        top: 31%;
+        left: 6%;
+    }
+    #intro #intro-text #intro-text-heading h3{
+        left:17%;
+        top:47%;
+    }
+    #intro #intro-text #intro-text-body p{
+        bottom: 16%;
+        left: 12%;
+        width: 42%;
+        font-size: 1.2rem;
     }
     /*skills*/
     #skills{
@@ -990,6 +1377,33 @@ inset 0px 0px 20px #9E829C,
         top: 17%;
         left: 18%;
     }
+    /*footer*/
+    footer{
+        min-height:300px;
+        max-height:900px;
+    }
+
+    footer #footer-head{
+        bottom: -61%;
+        font-size: 269px;
+
+    }
+    footer #footer-nav p:not(:first-of-type){
+        font-size:1rem;
+    }
+    footer #footer-nav p:first-child{
+        margin-bottom:2%;
+        font-size:1.2rem;
+    }
+    footer #footer-text #footer-about h3{
+        font-size:1.3rem;
+        margin-left:2%;
+    }
+    footer #footer-text #footer-about p{
+        width:70%;
+        margin:2%;
+        font-size:0.8rem;
+    }
 }
 @media(min-width:500px) and (max-width: 600px){
     /*my works*/
@@ -998,6 +1412,9 @@ inset 0px 0px 20px #9E829C,
     }
     #my-works h2{
         font-size:1.5rem;
+    }
+    #my-works{
+        height:331px;
     }
     /*gallery*/
     #gallery{
@@ -1030,13 +1447,30 @@ inset 0px 0px 20px #9E829C,
     #intro #intro-text #intro-text-header span{
         padding:5px;
     }
+    #intro #intro-text-heading h1{
+        font-size: 3.3rem;
+        top: 31%;
+        left: 6%;
+    }
+    #intro #intro-text #intro-text-heading h3{
+        top:42%;
+        left:11%;
+        font-size:0.9rem;
+    }
+    #intro #intro-text #intro-text-body p{
+        bottom: 23%;
+        left: 12%;
+        width: 46%;
+        font-size: 1.2rem;
+    }
     /*skills*/
     #skills{
         gap: 1px;
-        width: 85%;
+        width: 39%;
         height: 41vh;
         grid-template-columns: 119px 106px 112px 200px;
         grid-template-rows: 90px 95px 103px;
+        margin-left: 1%;
     }
     /*skills name*/
     #skills #name span{
@@ -1160,6 +1594,43 @@ inset 0px 0px 20px #9E829C,
         left: -27%;
         font-family: "Lucida Sans Typewriter", sans-serif;
     }
+    /*footer*/
+    footer{
+        min-height:300px;
+        max-height:900px;
+    }
+    footer #footer-head{
+        bottom: -28%;
+        font-size: 191px;
+    }
+    footer #footer-nav p:not(:first-of-type){
+        font-size:1rem;
+    }
+    footer #footer-nav p:first-child{
+        margin-bottom:2%;
+        font-size:1.2rem;
+    }
+    footer #footer-text #footer-about h3{
+        font-size:1.2rem;
+        margin-left:2%;
+    }
+    footer #footer-text #footer-about p{
+        width:70%;
+        margin:2%;
+        font-size:0.7rem;
+    }
+    footer #footer-text #footer-about #icons{
+        margin:auto 4%;
+        font-size:1.1rem;
+
+    }
+    footer #footer-text #footer-about .icon{
+        overflow: hidden;
+    }
+    footer #footer-text #footer-contact address{
+        font-size:0.7rem;
+        width:30%;
+    }
 }
 @media (min-width:400px) and (max-width:500px){
     /*my works*/
@@ -1167,10 +1638,13 @@ inset 0px 0px 20px #9E829C,
         margin-left:-9%;
     }
     #my-works h4{
-        font-size:0.9rem;
+        font-size:1.9rem;
     }
     #my-works h2{
         font-size:1.5rem;
+    }
+    #my-works{
+        height:331px;
     }
     /*gallery*/
     #gallery{
@@ -1207,7 +1681,22 @@ inset 0px 0px 20px #9E829C,
     #intro #intro-text #intro-text-header span{
         padding:2px;
         font-size:10px;
-
+    }
+    #intro #intro-text-heading h1{
+        font-size: 2.6rem;
+        top: 21%;
+        left: 6%;
+    }
+    #intro #intro-text #intro-text-heading h3{
+        font-size:10px;
+        left:17%;
+        top:40%;
+    }
+    #intro #intro-text #intro-text-body p{
+        bottom: 23%;
+        left: 10%;
+        width: 46%;
+        font-size: 10px;
     }
     /*skills*/
     #skills {
@@ -1219,6 +1708,7 @@ inset 0px 0px 20px #9E829C,
                 "profession2 profession2 about about";
         height: 40vh;
         gap: 2px;
+        margin-bottom: 0;
     }
     /*skills college*/
     #skills #college{
@@ -1342,6 +1832,47 @@ inset 0px 0px 20px #9E829C,
         left: -7%;
         font-family: "Lucida Sans Typewriter", sans-serif;
     }
+    /*footer*/
+    footer{
+        min-height:300px;
+        max-height:900px;
+    }
+    footer #footer-head{
+        bottom: -14%;
+        font-size: 147px;
+        margin-left:4%;
+
+    }
+    footer #footer-nav p:not(:first-of-type){
+        font-size:0.6rem;
+    }
+    footer #footer-nav p:first-child{
+        margin-bottom:2%;
+        font-size:1rem;
+    }
+    footer #footer-text #footer-about h3{
+        font-size:1rem;
+        margin-left:2%;
+    }
+    footer #footer-text #footer-about p{
+        width:80%;
+        margin:4%;
+        font-size:0.5rem;
+    }
+    footer #footer-text #footer-contact address{
+        font-size:0.6rem;
+    }
+    footer #footer-text #footer-contact p, footer #footer-text #footer-contact address{
+        margin:2%;
+        width:90%;
+    }
+    footer #footer-text #footer-contact{
+        margin-left: 4%;
+        margin-top: 0%;
+    }
+    footer #footer-text{
+        width:80%;
+    }
 }
 @media (min-width:300px) and (max-width:400px){
     /*my works*/
@@ -1350,6 +1881,9 @@ inset 0px 0px 20px #9E829C,
     }
     #my-works h2{
         font-size:1.5rem;
+    }
+    #my-works{
+      height:261px;
     }
     /*gallery*/
     #gallery {
@@ -1387,6 +1921,22 @@ inset 0px 0px 20px #9E829C,
         padding:1px;
         font-size:9px;
     }
+    #intro #intro-text-heading h1{
+        font-size: 2.3rem;
+        top: 27%;
+        left: 6%;
+    }
+    #intro #intro-text #intro-text-heading h3{
+        font-size:10px;
+        left:13%;
+        top:40%;
+    }
+    #intro #intro-text #intro-text-body p{
+        bottom: 23%;
+        left: 10%;
+        width: 46%;
+        font-size: 10px;
+    }
     /*skills*/
     #skills{
         grid-template-columns: 111px 43px 52px 81px;
@@ -1395,8 +1945,10 @@ inset 0px 0px 20px #9E829C,
                 "college name name projects"
                 "contacts profession1 profession1 projects"
                 "profession2 profession2 about about";
-        height: 43.1vh;
+        height: 298px;
         gap: 2px;
+        margin-bottom: 0;
+        margin-left:2%;
     }
     /*skills college*/
 
@@ -1520,5 +2072,69 @@ inset 0px 0px 20px #9E829C,
         top: 77%;
         left: -7%;
         font-family: "Lucida Sans Typewriter", sans-serif;
+    }
+    /*footer*/
+    footer{
+        min-height:300px;
+        max-height:900px;
+    }
+    footer #footer-head{
+        bottom: -22%;
+        font-size: 130px;
+
+    }
+    footer #footer-nav p:not(:first-of-type){
+
+        font-size:0.7rem;
+    }
+    footer #footer-nav p:first-child{
+        margin-top:2%;
+        margin-bottom:5%;
+        font-size:1rem;
+    }
+    footer #footer-text{
+        top:4%;
+    }
+    footer #footer-text #footer-nav{
+        margin:2%;
+    }
+    footer #footer-text #footer-about {
+        margin:2%;
+    }
+    footer #footer-text #footer-contact {
+        margin:2%;
+    }
+    footer #footer-text #footer-about h3{
+        font-size:0.9rem;
+        margin-left:2%;
+    }
+    footer #footer-text #footer-about p{
+        width:80%;
+        margin:4%;
+        font-size:0.6rem;
+    }
+    div#icons{
+        width:10px;
+        height:20px;
+    }
+    footer #footer-text #footer-about{
+        width:40%;
+    }
+
+    footer #footer-text #footer-contact address{
+        font-size:0.5rem;
+        position: relative;
+    }
+    footer #footer-text  #footer-contact{
+        margin: 1%;
+        width: 55%;
+    }
+    footer #footer-text #footer-contact p, footer #footer-text #footer-contact address{
+        margin:2%;
+        width:80%;
+    }
+    footer #footer-text{
+        width:95%;
+        margin:1%;
     }
 }
