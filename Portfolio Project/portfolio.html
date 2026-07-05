@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="portfolio.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Archivo+Black&family=Coming+Soon&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Edu+NSW+ACT+Cursive:wght@400..700&family=Epilogue:ital,wght@0,100..900;1,100..900&family=Inconsolata:wght@200..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Julius+Sans+One&family=Londrina+Outline&family=Luckiest+Guy&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playwrite+AU+SA:wght@100..400&family=Raleway:ital,wght@0,100..900;1,100..900&family=Righteous&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Style+Script&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- Hero Section
+↓
+About Me
+↓
+Skills
+↓
+Projects
+↓
+Education
+↓
+Contact-->
+<main>
+<section id="intro">
+    <div id="intro-text">
+        <nav id="intro-text-header">
+            <span><a href="#intro">Home</a></span>
+            <span>|</span>
+            <span><a href="#skills">About</a></span>
+            <span>|</span>
+            <span><a href="#my-works">Projects</a></span>
+            <span>|</span>
+            <span><a href="#footer-contact">Contact</a></span>
+        </nav>
+        <div id="intro-text-heading">
+            <h1>Introducing...</h1>
+            <h3>The lady behind the project</h3>
+        </div>
+        <div id="intro-text-body">
+            <p>Manha is a writer, junior data analyst and web developer. Her best invention, so far, is yet to come.
+            </p>
+        </div>
+    </div>
+    <div id="intro-img" role="img" aria-label="an image of Manha AK (that is me!)"></div>
+</section>
+<section id="skills">
+    <div id="name" style="grid-area: name;">
+        <span>MANHA</span>
+        <p>manha</p>
+    </div>
+    <div id="college" style="grid-area:college">
+    <p>Pondicherry University</p>
+        <p> B.Sc. (Hons) Computer Science</p>
+            <p>Fourth Year</p>
+    </div>
+    <div id="about" style="grid-area:about">
+        <p>Hi!</p>
+            <p>
+            I am Manha, a part-time coder and a full-time dreamer. While you're not catching me
+            at work trying to understand what I'm doing, you can find me dozing off or binge-watching.
+            </p>
+    </div>
+    <div id="projects" style="grid-area:projects" ><a href="#my-works"><p>Projects</p>
+        <p>Projects</p><p>Projects</p><p>Projects</p></a></div>
+    <div id="contacts" style="grid-area:contacts"><span>Kerala</span><i class="fa-solid fa-location-dot location"></i><span>India</span></div>
+    <div id="profession1" style="grid-area:profession1">
+        <p>Data Analyst</p></div>
+    <div id="profession2" style="grid-area:profession2"><p>Web Developer</p></div>
+</section>
+<section id="my-works">
+  <h4>Portfolio</h4>
+  <h2>My Works</h2>
+    <div class="contents">
+  <span id="all"><a href="https://github.com/leffraun/basic_portfolio_projects" target="_blank">Explore My GitHub</a></span>
+    </div>
+  <div id="gallery">
+    <div  class="project-1" style="grid-area:box-1">
+        <a href="https://github.com/leffraun/basic_portfolio_projects/blob/main/fileorganiser.py" aria-label="view my file organiser project on github" target="_blank">
+        <span class="caption">File organiser</span>
+        <div class="box"></div>
+        </a>
+    </div>
+
+    <div class="project-2" style="grid-area:box-2">
+        <a href="https://github.com/leffraun/basic_portfolio_projects/blob/main/passwordGeneratorCli.py" aria-label="view my password generator project on github" target="_blank">
+        <span class="caption">Password generator</span>
+        <div class="box"></div>
+        </a>
+    </div>
+    <div class="project-3" style="grid-area:box-3">
+        <a href="https://github.com/leffraun/basic_portfolio_projects/blob/main/expensetrackercli.py" aria-label="view my expense tracker project on github" target="_blank">
+        <span class="caption">Expense tracker</span>
+        <div class="box"></div>
+        </a>
+    </div>
+    <div class="project-4" style="grid-area:box-4">
+        <a href="https://github.com/leffraun/basic_portfolio_projects/blob/main/weatherapicli.py" aria-label="view my weather api project on github" target="_blank">
+        <span class="caption">Weather API</span>
+        <div class="box"></div>
+        </a>
+    </div>
+    <div class="project-5" style="grid-area:box-5">
+        <a href="https://github.com/leffraun/basic_portfolio_projects/blob/main/dataAnalyser.py" aria-label="view my data analyser project on github" target="_blank">
+        <span class="caption">Data Analyzer</span>
+        <div class="box"></div>
+        </a>
+    </div>
+  </div>
+</section>
+</main>
+<footer aria-label="footer">
+<div id="footer-text">
+    <nav id="footer-nav">
+        <p>Navigation</p>
+        <p><a href="#intro">Home</a></p>
+        <p><a href="#skills">About</a></p>
+        <p><a href="#my-works">Projects</a></p>
+        <p><a href="#footer-contact">Contact</a></p>
+    </nav>
+    <div id="footer-about">
+        <h3>about this website</h3>
+        <p>This is a page of mine that showcases my projects for the month of June-early July 2026.</p>
+        <div id="icons">
+            <a href="https://www.linkedin.com/in/manha-ayyan-kuzhiyan-2aa851291/" aria-label="visit my linkedIn profile" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin icon"></i></a>
+            <a href="https://x.com/leffraun26" aria-label="visit my x profile" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-x-twitter icon" ></i></a>
+            <a href="https://github.com/leffraun" aria-label="visit my github profile" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-square-github icon"></i></a>
+        </div>
+    </div>
+    <div id="footer-contact">
+        <p>Contact</p>
+    <address>
+        Kerala, India<br>
+        <a href="mailto:23384113@pondiuni.ac.in">23384113@pondiuni.ac.in</a>
+    </address>
+    </div>
+</div>
+<div id="footer-head"><p>MANHA</p></div>
+</footer>
+</body>
+</html>
